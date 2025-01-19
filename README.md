@@ -1,6 +1,6 @@
-# E-Commerce Service
+# NewKart
 
-The **E-Commerce Service** is a Kafka-enabled microservice built using **Java 17** and **Micronaut 4.7.1**. It facilitates the creation, processing, and validation of orders and payments within an e-commerce system. With a robust architecture, the project integrates Kafka for asynchronous communication and provides reliable failure handling mechanisms such as Dead Letter Queues (DLQ).
+The **NewKart** is a Kafka-enabled microservice built using **Java 17** and **Micronaut 4.7.1**. It facilitates the creation, processing, and validation of orders and payments within an e-commerce system. With a robust architecture, the project integrates Kafka for asynchronous communication and provides reliable failure handling mechanisms such as Dead Letter Queues (DLQ).
 
 ---
 
