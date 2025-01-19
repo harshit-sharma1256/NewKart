@@ -7,7 +7,10 @@ The **NewKart** is a Kafka-enabled microservice built using **Java 17** and **Mi
 
 ### **RESTful API**
 - Endpoints for order and payment creation, validation, and status checks.
-<img width="1789" alt="Screenshot 2024-12-05 at 2 39 21 PM" src="https://git.target.com/Z00FB39/ecom-use-case/assets/25842/3626ec5b-8e8f-4ef3-accb-2c4324ee5a56">
+<img width="1792" alt="Screenshot 2024-12-05 at 2 32 58 PM" src="https://github.com/user-attachments/assets/93f85030-f5f0-4265-8620-70df19223566" />
+
+### ** Terminal Output **
+<img width="993" alt="Screenshot 2024-12-11 at 8 24 14 PM" src="https://github.com/user-attachments/assets/728ee2ed-137a-4c09-aa8a-a256ee06caea" />
 
 ---
 
@@ -16,7 +19,7 @@ The **NewKart** is a Kafka-enabled microservice built using **Java 17** and **Mi
 ### 1. Clone the Repository
 
 ```bash
-git clone git@git.target.com:Z00FB39/ecom-use-case.git
+git clone https://github.com/harshit-sharma1256/NewKart.git
 ```
 
 ---
