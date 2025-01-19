@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.harshit
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [app-name, gradle, http-client-test, java, java-application, junit, kafka, logback, lombok, micronaut-aot, micronaut-build, micronaut-http-validation, netty-server, openapi, properties, readme, serialization-jackson, shade, static-resources, swagger-ui, test-resources]

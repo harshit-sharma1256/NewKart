@@ -1,0 +1,79 @@
+plugins {
+    id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("io.micronaut.application") version "4.4.4"
+    id("io.micronaut.test-resources") version "4.4.4"
+    id("io.micronaut.aot") version "4.4.4"
+}
+
+version = "0.1"
+group = "com.harshit"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //Micronaut’s annotation processors(tools that operate at compile time to process annotations)
+    // scan the codebase to find Micronaut-specific annotations like @Singleton,@Inject, or @ConfigurationProperties and collect/generate
+    // metadata about beans and their dependencies.
+    annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("io.micronaut:micronaut-http-validation")
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+    annotationProcessor("io.micronaut.serde:micronaut-serde-processor") //Processes annotations for Micronaut's serialization/deserialization
+    // (Serde) support, such as custom serializers and deserializers.
+
+    implementation("io.micronaut.kafka:micronaut-kafka")
+    implementation("org.apache.kafka:kafka-clients")
+    implementation("io.micronaut.serde:micronaut-serde-jackson")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("jakarta.annotation:jakarta.annotation-api")
+    compileOnly("io.micronaut:micronaut-http-client")
+    compileOnly("io.micronaut.openapi:micronaut-openapi-annotations")
+    compileOnly("org.projectlombok:lombok")
+    runtimeOnly("ch.qos.logback:logback-classic")
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation 'org.hibernate.validator:hibernate-validator:6.2.0.Final'
+    implementation 'javax.validation:validation-api:2.0.1.Final'
+    testImplementation("io.micronaut:micronaut-http-client")
+    testImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
+    testImplementation("io.micronaut.test:micronaut-test-rest-assured")
+}
+
+
+application {
+    mainClass = "com.harshit.Application"
+}
+java {
+    sourceCompatibility = JavaVersion.toVersion("17")
+    targetCompatibility = JavaVersion.toVersion("17")
+}
+
+
+graalvmNative.toolchainDetection = false
+
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("com.harshit.*")
+    }
+    testResources {
+        sharedServer = true
+    }
+    aot {
+        // Please review carefully the optimizations enabled below
+        // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
+        optimizeServiceLoading = false
+        convertYamlToJava = false
+        precomputeOperations = true
+        cacheEnvironment = true
+        optimizeClassLoading = true
+        deduceEnvironment = true
+        optimizeNetty = true
+        replaceLogbackXml = true
+    }
+}
+
+
+
